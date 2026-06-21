@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#f97316" />
+  <meta name="description" content="Sanjay Ram Srinivasan - AI/ML-focused Computer Science Engineer building RAG pipelines, LLM applications, and full-stack Python platforms." />
+  <meta name="keywords" content="Sanjay Ram Srinivasan, AI ML Engineer, Generative AI, RAG, LangChain, Flask, FastAPI, VIT Andhra Pradesh" />
+  <meta name="author" content="Sanjay Ram Srinivasan" />
+  <title>Sanjay Ram Srinivasan | AI/ML Portfolio</title>
+  <style>
+    :root{
+      --bg:#fffaf5;
+      --bg2:#fff;
+      --surface:rgba(255,255,255,.78);
+      --text:#111827;
+      --muted:#5b6472;
+      --line:rgba(15,23,42,.09);
+      --brand:#f97316;
+      --brand2:#fb923c;
+      --shadow:0 24px 70px rgba(249,115,22,.12);
+      --radius:24px;
+      --max:1180px;
+      --font:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    }
+    html[data-theme="dark"]{
+      --bg:#09090b;
+      --bg2:#0f1115;
+      --surface:rgba(15,17,21,.76);
+      --text:#f8fafc;
+      --muted:#a1a8b3;
+      --line:rgba(255,255,255,.08);
+      --shadow:0 24px 80px rgba(249,115,22,.14);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;font-family:var(--font);background:
+      radial-gradient(circle at top right,rgba(249,115,22,.14),transparent 26%),
+      radial-gradient(circle at 20% 20%,rgba(251,146,60,.1),transparent 20%),
+      var(--bg);
+      color:var(--text);line-height:1.6;overflow-x:hidden;
+    }
+    body::before{
+      content:"";position:fixed;inset:0;pointer-events:none;opacity:.24;
+      background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+      background-size:60px 60px;
+    }
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    .container{width:min(var(--max),calc(100% - 32px));margin:0 auto}
+    .glass{background:var(--surface);backdrop-filter:blur(18px);border:1px solid var(--line);box-shadow:var(--shadow)}
+    .nav{position:sticky;top:0;z-index:50;border-bottom:1px solid var(--line);background:color-mix(in oklab,var(--bg2) 78%, transparent);backdrop-filter:blur(20px)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 0}
+    .logo{font-weight:800;letter-spacing:.28em;font-size:1rem}
+    .nav-links{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+    .nav-links a,.chip-btn,.icon-btn,.cta,.pill,.tab{
+      border:1px solid var(--line);background:var(--surface);color:var(--text);transition:.22s ease;cursor:pointer
+    }
+    .nav-links a{padding:10px 14px;border-radius:999px;font-size:.92rem}
+    .nav-links a.active,.tab.active{background:var(--brand);color:#fff;border-color:transparent}
+    .actions{display:flex;align-items:center;gap:10px}
+    .icon-btn{width:42px;height:42px;border-radius:999px;display:grid;place-items:center}
+    .cta{padding:11px 18px;border-radius:999px;background:var(--text);color:var(--bg2);font-weight:700}
+    .cta:hover,.nav-links a:hover,.icon-btn:hover,.tab:hover,.chip-btn:hover{transform:translateY(-1px);border-color:var(--brand)}
+    .hero{padding:74px 0 36px}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-size:.78rem;letter-spacing:.28em;text-transform:uppercase;color:var(--brand)}
+    h1{font-size:clamp(2.9rem,7vw,5.8rem);line-height:.94;letter-spacing:-.05em;margin:.7rem 0 1rem}
+    h2{font-size:clamp(2rem,4vw,3.2rem);line-height:1.06;letter-spacing:-.04em;margin:0}
+    .lead{font-size:clamp(1.05rem,1.6vw,1.18rem);color:var(--muted);max-width:62ch}
+    .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+    .cta.secondary{background:transparent;color:var(--text)}
+    .hero-card{padding:28px;border-radius:var(--radius);border:1px solid var(--line);background:linear-gradient(180deg,color-mix(in oklab,var(--surface) 90%, transparent),var(--surface));}
+    .hero-card .metric{display:grid;grid-template-columns:1fr auto;gap:8px;padding:14px 0;border-top:1px solid var(--line)}
+    .hero-card .metric:first-child{border-top:0}
+    .metric .label{color:var(--muted);font-size:.92rem}
+    .metric .value{font-weight:700}
+    section{padding:28px 0 10px}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:22px}
+    .section-copy{max-width:70ch;color:var(--muted)}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .stat{padding:20px;border-radius:22px}
+    .stat .n{font-size:2.4rem;font-weight:800;color:var(--brand);line-height:1}
+    .stat .t{color:var(--muted);margin-top:6px}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .card{padding:24px;border-radius:var(--radius)}
+    .card h3{margin:0 0 4px;font-size:1.3rem}
+    .muted{color:var(--muted)}
+    .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+    .tag{padding:8px 11px;border-radius:999px;border:1px solid var(--line);font-size:.82rem;color:var(--muted);background:color-mix(in oklab,var(--surface) 92%, transparent)}
+    .skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .skill-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+    .project-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+    .pill{padding:9px 14px;border-radius:999px;font-size:.9rem}
+    .tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px}
+    .timeline{display:grid;gap:16px}
+    .timeline-item{position:relative;padding-left:22px}
+    .timeline-item::before{content:"";position:absolute;left:0;top:12px;width:10px;height:10px;border-radius:999px;background:var(--brand)}
+    .footer{padding:28px 0 44px;border-top:1px solid var(--line);margin-top:22px}
+    .footer-row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    .loading{position:fixed;inset:0;z-index:80;display:grid;place-items:center;background:var(--bg)}
+    .spinner{width:68px;height:68px;border-radius:999px;border:4px solid color-mix(in oklab,var(--brand) 25%, transparent);border-top-color:var(--brand);animation:spin 1s linear infinite}
+    .fade{animation:fadeUp .55s ease both}
+    .reveal{opacity:0;transform:translateY(18px);transition:.5s ease}
+    .reveal.show{opacity:1;transform:none}
+    .showcase{border-radius:32px;padding:28px}
+    .project-filter{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px}
+    .project-grid{display:grid;gap:18px}
+    .small{font-size:.92rem}
+    .project-impacts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+    .impact{padding:12px;border-radius:16px;background:color-mix(in oklab,var(--surface) 86%, transparent);border:1px solid var(--line);font-size:.85rem}
+    .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:18px}
+    .contact-item{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:18px;background:color-mix(in oklab,var(--surface) 84%, transparent);border:1px solid var(--line)}
+    .hr{height:1px;background:var(--line);margin:24px 0}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+    @media (max-width:980px){
+      .hero-grid,.grid-2,.skill-grid,.contact-grid,.stats{grid-template-columns:1fr 1fr}
+      .hero-grid{grid-template-columns:1fr}
+    }
+    @media (max-width:720px){
+      .container{width:min(var(--max),calc(100% - 22px))}
+      .nav-inner{flex-direction:column;align-items:stretch}
+      .nav-links{justify-content:flex-start;overflow:auto;padding-bottom:4px}
+      .actions{justify-content:space-between}
+      .stats,.grid-2,.skill-grid,.project-impacts,.contact-grid{grid-template-columns:1fr}
+      h1{font-size:clamp(2.6rem,15vw,4.2rem)}
+      .hero{padding-top:34px}
+    }
+  </style>
+</head>
+<body>
+  <div class="loading" id="loader"><div class="spinner" aria-label="Loading"></div></div>
+  <header class="nav">
+    <div class="container nav-inner">
+      <button class="logo" data-scroll="hero">SRS</button>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">◐</button>
+        <a class="cta" href="resume/Sanjay_Ram_AI_Resume.pdf" download>Download Resume</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" id="hero">
+      <div class="hero-grid">
+        <div class="fade">
+          <span class="eyebrow">AI/ML Engineer Portfolio</span>
+          <h1>Sanjay Ram Srinivasan</h1>
+          <p class="lead">AI/ML-focused Computer Science Engineer (VIT Andhra Pradesh) with hands-on experience building RAG pipelines, LLM-powered applications, and full-stack Python backends. Delivered production-grade platforms leveraging LangChain, vector databases, Flask, and REST APIs. Passionate about Generative AI, NLP, and intelligent systems. Seeking AI/ML, GenAI, or SDE internships to drive real-world impact.</p>
+          <div class="cta-row">
+            <button class="cta" data-scroll="projects">View Projects</button>
+            <button class="cta secondary" data-scroll="contact">Get In Touch</button>
+          </div>
+          <div class="hr"></div>
+          <div class="grid-2">
+            <div class="glass card"><strong>Location</strong><div class="muted">Amaravathi, AP</div></div>
+            <div class="glass card"><strong>Focus</strong><div class="muted">RAG, LLMs, NLP, backend systems</div></div>
+          </div>
+        </div>
+        <aside class="hero-card glass fade">
+          <div class="metric"><span class="label">Name</span><span class="value">Sanjay Ram Srinivasan</span></div>
+          <div class="metric"><span class="label">Email</span><span class="value">sanjaysrinivasan.ram@gmail.com</span></div>
+          <div class="metric"><span class="label">Phone</span><span class="value">+91 9043286377</span></div>
+          <div class="metric"><span class="label">LinkedIn</span><span class="value"><a href="https://www.linkedin.com/in/sanjay-ram-s-498681369/" target="_blank" rel="noreferrer">linkedin.com/in/sanjay-ram-s-498681369</a></span></div>
+          <div class="metric"><span class="label">GitHub</span><span class="value"><a href="https://github.com/Sanjayram710" target="_blank" rel="noreferrer">github.com/Sanjayram710</a></span></div>
+        </aside>
+      </div>
+    </section>
+
+    <section>
+      <div class="stats">
+        <div class="stat glass reveal"><div class="n" data-count="3">0</div><div class="t">Projects</div></div>
+        <div class="stat glass reveal"><div class="n" data-count="2">0</div><div class="t">AI Pipelines</div></div>
+        <div class="stat glass reveal"><div class="n" data-count="6">0</div><div class="t">Tech Stack Areas</div></div>
+        <div class="stat glass reveal"><div class="n" data-count="3">0</div><div class="t">Certifications</div></div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="section-head">
+        <div>
+          <h2>About Me</h2>
+          <p class="section-copy">Everything in this portfolio is derived from the resume content only.</p>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="glass card reveal">
+          <p>AI/ML-focused Computer Science Engineer (VIT Andhra Pradesh) with hands-on experience building RAG pipelines, LLM-powered applications, and full-stack Python backends. Delivered production-grade platforms leveraging LangChain, vector databases, Flask, and REST APIs. Passionate about Generative AI, NLP, and intelligent systems. Seeking AI/ML, GenAI, or SDE internships to drive real-world impact.</p>
+          <p class="muted">The site emphasizes practical delivery across AI/ML, backend systems, and production deployment.</p>
+        </div>
+        <div class="glass card reveal">
+          <h3>Resume Highlights</h3>
+          <div class="skill-list">
+            <span class="tag">RAG pipelines</span><span class="tag">LLM applications</span><span class="tag">Vector databases</span><span class="tag">REST APIs</span><span class="tag">Generative AI</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="section-head">
+        <div>
+          <h2>Skills</h2>
+          <p class="section-copy">Auto-grouped into the requested categories using only the resume text.</p>
+        </div>
+      </div>
+      <div class="skill-grid">
+        <div class="glass card reveal"><h3>Programming Languages</h3><div class="skill-list"><span class="tag">Python</span><span class="tag">Java</span><span class="tag">C</span><span class="tag">JavaScript</span></div></div>
+        <div class="glass card reveal"><h3>AI/ML & GenAI</h3><div class="skill-list"><span class="tag">LangChain</span><span class="tag">RAG Pipelines</span><span class="tag">LangGraph</span><span class="tag">Prompt Engineering</span><span class="tag">Groq API</span><span class="tag">HuggingFace Transformers</span><span class="tag">OpenAI API</span><span class="tag">Sentence Transformers</span></div></div>
+        <div class="glass card reveal"><h3>Frameworks</h3><div class="skill-list"><span class="tag">Flask</span><span class="tag">SQLAlchemy</span><span class="tag">FastAPI</span><span class="tag">Bootstrap</span><span class="tag">REST APIs</span></div></div>
+        <div class="glass card reveal"><h3>Databases</h3><div class="skill-list"><span class="tag">MySQL</span><span class="tag">SQLite</span><span class="tag">SQL</span><span class="tag">ChromaDB</span></div></div>
+        <div class="glass card reveal"><h3>Cloud & DevOps</h3><div class="skill-list"><span class="tag">AWS EC2</span><span class="tag">AWS S3</span><span class="tag">AWS IAM</span><span class="tag">Docker</span><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Render</span><span class="tag">CI/CD</span></div></div>
+        <div class="glass card reveal"><h3>Tools</h3><div class="skill-list"><span class="tag">VS Code</span><span class="tag">Figma</span><span class="tag">Postman</span><span class="tag">Jupyter Notebook</span></div></div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-head">
+        <div>
+          <h2>Featured Projects</h2>
+          <p class="section-copy">Detailed project cards with technologies, impact, and available launch details from the resume.</p>
+        </div>
+      </div>
+      <div class="project-filter" id="filters"></div>
+      <div class="project-grid" id="projectsGrid"></div>
+    </section>
+
+    <section id="certifications">
+      <div class="section-head">
+        <div>
+          <h2>Certifications</h2>
+          <p class="section-copy">Timeline of certifications listed in the resume.</p>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item glass card reveal"><h3>AWS Academy Graduate - Cloud Foundations</h3><div class="muted">AWS Academy</div><div class="tag" style="display:inline-block;margin-top:12px">2025</div></div>
+        <div class="timeline-item glass card reveal"><h3>AWS Academy Graduate - Cloud Architecting</h3><div class="muted">AWS Academy</div><div class="tag" style="display:inline-block;margin-top:12px">2025</div></div>
+        <div class="timeline-item glass card reveal"><h3>MATLAB Certification</h3><div class="muted">MathWorks</div><div class="tag" style="display:inline-block;margin-top:12px">2023-2024</div></div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="section-head">
+        <div>
+          <h2>Education</h2>
+          <p class="section-copy">Education entries preserved from the resume extraction.</p>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item glass card reveal"><h3>B.Tech in Computer Science & Engineering</h3><div class="muted">Vellore Institute of Technology, Andhra Pradesh</div><div class="tag" style="display:inline-block;margin-top:12px">Sep 2023 - Present</div><p class="small muted">Relevant: DSA, DBMS, OOP, Computer Networks, Software Engineering</p></div>
+        <div class="timeline-item glass card reveal"><h3>Intermediate (Class XII - CBSE)</h3><div class="muted">Sri Chaitanya Techno School</div><div class="tag" style="display:inline-block;margin-top:12px">Jun 2021 - May 2023</div></div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-head">
+        <div>
+          <h2>Contact</h2>
+          <p class="section-copy">Contact information is taken directly from the resume and your linked profiles are now wired in.</p>
+        </div>
+      </div>
+      <div class="contact-grid">
+        <div class="glass card reveal">
+          <a class="contact-item" href="mailto:sanjaysrinivasan.ram@gmail.com"><strong>Email</strong><span class="muted">sanjaysrinivasan.ram@gmail.com</span></a>
+          <a class="contact-item" style="margin-top:12px" href="tel:+919043286377"><strong>Phone</strong><span class="muted">+91 9043286377</span></a>
+          <a class="contact-item" style="margin-top:12px" href="https://www.linkedin.com/in/sanjay-ram-s-498681369/" target="_blank" rel="noreferrer"><strong>LinkedIn</strong><span class="muted">linkedin.com/in/sanjay-ram-s-498681369</span></a>
+          <a class="contact-item" style="margin-top:12px" href="https://github.com/Sanjayram710" target="_blank" rel="noreferrer"><strong>GitHub</strong><span class="muted">github.com/Sanjayram710</span></a>
+        </div>
+        <div class="glass card reveal">
+          <h3>Resume Download</h3>
+          <p class="muted">The PDF is bundled locally for a direct download.</p>
+          <div class="cta-row"><a class="cta" href="resume/Sanjay_Ram_AI_Resume.pdf" download>Download PDF</a></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-row">
+        <div>Built from resume content only for Sanjay Ram Srinivasan.</div>
+        <div class="muted"><a href="https://www.linkedin.com/in/sanjay-ram-s-498681369/" target="_blank" rel="noreferrer">LinkedIn</a> | <a href="https://github.com/Sanjayram710" target="_blank" rel="noreferrer">GitHub</a> | <a href="resume/Sanjay_Ram_AI_Resume.pdf" download>Resume</a></div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    const resume = {
+      projects: [
+        {
+          title: "Self-Healing RAG Platform",
+          subtitle: "Enterprise AI Knowledge Assistant",
+          category: "AI/ML & GenAI",
+          period: "Jun 2026 - Jul 2026",
+          tech: ["Python","FastAPI","LangChain","LangGraph","ChromaDB","Groq","React"],
+          highlights: [
+            "Developed a Retrieval-Augmented Generation platform for querying multi-format documents using semantic search and vector embeddings.",
+            "Implemented self-healing mechanisms including query rewriting, retrieval validation, and retry logic to improve answer accuracy and reduce hallucinations.",
+            "Built an analytics dashboard to monitor faithfulness, confidence scores, hallucination rate, answer relevance, and retrieval performance.",
+            "Integrated LangChain, LangGraph, ChromaDB, and Groq LLM to provide context-aware responses with source citations and document traceability."
+          ],
+          impact: ["Self-healing retrieval flow","Analytics dashboard","Context-aware answers with citations"],
+          live: "https://self-healing-rag-platform.vercel.app/"
+        },
+        {
+          title: "AI Placement & Learning Copilot",
+          subtitle: "RAG-Based Career Intelligence System",
+          category: "AI/ML & GenAI",
+          period: "Mar 2026 - Jun 2026",
+          tech: ["Python","LangChain","ChromaDB","OpenAI API","Flask","SQLite","HuggingFace"],
+          highlights: [
+            "Engineered an end-to-end RAG pipeline ingesting 500+ career documents into ChromaDB vector store, achieving <1.2s retrieval latency for semantic career Q&A.",
+            "Integrated LangChain RetrievalQA with HuggingFace embeddings to deliver personalized job recommendations, reducing irrelevant suggestions by ~40% vs. keyword search.",
+            "Built an automated resume analyzer that parses PDF resumes, identifies skill gaps against JD requirements, and generates tailored improvement plans via LLM prompting.",
+            "Deployed Flask REST API backend serving 3 AI endpoints (career Q&A, resume analysis, mock interviews) with JWT-based authentication and rate limiting."
+          ],
+          impact: ["500+ documents indexed","<1.2s retrieval latency","~40% fewer irrelevant suggestions"],
+          live: ""
+        },
+        {
+          title: "CareerConnect",
+          subtitle: "Full-Stack Career Platform",
+          category: "Web & Backend",
+          period: "Apr 2026 - Jun 2026",
+          tech: ["Python","Flask","SQLAlchemy","SQLite","Bootstrap","Render"],
+          highlights: [
+            "Designed and deployed a production-grade career platform with JWT authentication, role-based access control, and RESTful APIs supporting 50+ endpoints.",
+            "Built advanced job and internship search with multi-filter querying across role, location, and skill, cutting average job discovery time by 60% vs. unfiltered browsing.",
+            "Developed a CRUD-complete admin dashboard managing 500+ mock user records, job postings, and application pipelines with audit logging."
+          ],
+          impact: ["50+ API endpoints","60% faster discovery","500+ mock records managed"],
+          live: "https://careerconnect-4obn.onrender.com/"
+        }
+      ]
+    };
+
+    const categories = ["All", ...new Set(resume.projects.map(p => p.category))];
+    const filters = document.getElementById("filters");
+    const projectsGrid = document.getElementById("projectsGrid");
+    let selected = "All";
+
+    function projectCard(project){
+      const liveLink = project.live && project.live.startsWith("http") ? `<a class="pill" href="${project.live}" target="_blank" rel="noreferrer">Live Demo</a>` : project.live ? `<span class="pill">Live: ${project.live}</span>` : "";
+      return `
+        <article class="glass card reveal">
+          <div class="section-head" style="margin-bottom:8px">
+            <div>
+              <span class="tag">${project.category}</span>
+              <h3 style="margin-top:12px">${project.title}</h3>
+              <div class="muted">${project.subtitle}</div>
+            </div>
+            <div class="tag">${project.period}</div>
+          </div>
+          <div class="skill-list">${project.tech.map(t => `<span class="tag">${t}</span>`).join("")}</div>
+          <ul class="muted" style="margin:16px 0 0;padding-left:18px">
+            ${project.highlights.map(item => `<li style="margin:10px 0">${item}</li>`).join("")}
+          </ul>
+          <div class="project-impacts">${project.impact.map(item => `<div class="impact">${item}</div>`).join("")}</div>
+          <div class="project-actions">
+            ${liveLink}
+            <button class="pill" data-filter="${project.category}">Filter by category</button>
+          </div>
+        </article>`;
+    }
+
+    function renderProjects(){
+      const list = selected === "All" ? resume.projects : resume.projects.filter(p => p.category === selected);
+      projectsGrid.innerHTML = list.map(projectCard).join("");
+      [...projectsGrid.querySelectorAll("[data-filter]")].forEach(btn => btn.addEventListener("click", () => {
+        selected = btn.dataset.filter;
+        renderFilters();
+        renderProjects();
+      }));
+      observeReveal();
+    }
+
+    function renderFilters(){
+      filters.innerHTML = categories.map(cat => `<button class="tab ${selected===cat?"active":""}" data-cat="${cat}">${cat}</button>`).join("");
+      filters.querySelectorAll("[data-cat]").forEach(btn => btn.addEventListener("click", () => {
+        selected = btn.dataset.cat;
+        renderFilters();
+        renderProjects();
+      }));
+    }
+
+    function observeReveal(){
+      const items = document.querySelectorAll(".reveal");
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add("show"); });
+      }, { threshold: .15 });
+      items.forEach(el => io.observe(el));
+    }
+
+    function animateStats(){
+      document.querySelectorAll("[data-count]").forEach(el => {
+        const target = Number(el.dataset.count);
+        let current = 0;
+        const tick = () => {
+          current += Math.max(1, Math.ceil(target / 30));
+          if (current >= target) { el.textContent = target; return; }
+          el.textContent = current;
+          requestAnimationFrame(tick);
+        };
+        tick();
+      });
+    }
+
+    document.querySelectorAll("[data-scroll]").forEach(btn => {
+      btn.addEventListener("click", () => document.getElementById(btn.dataset.scroll).scrollIntoView({behavior:"smooth"}));
+    });
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener("click", e => {
+        const id = a.getAttribute("href").slice(1);
+        document.getElementById(id)?.scrollIntoView({behavior:"smooth"});
+        e.preventDefault();
+      });
+    });
+    document.getElementById("themeToggle").addEventListener("click", () => {
+      const root = document.documentElement;
+      root.dataset.theme = root.dataset.theme === "dark" ? "light" : "dark";
+      localStorage.setItem("portfolio-theme", root.dataset.theme);
+    });
+    const savedTheme = localStorage.getItem("portfolio-theme");
+    if (savedTheme) document.documentElement.dataset.theme = savedTheme;
+    renderFilters();
+    renderProjects();
+    animateStats();
+    observeReveal();
+    setTimeout(() => document.getElementById("loader").style.display = "none", 900);
+  </script>
+</body>
+</html>
